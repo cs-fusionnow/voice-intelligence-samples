@@ -1,8 +1,9 @@
 const fetch = require('node-fetch');
 
 const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
-const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioEncodedCreds = Buffer.from(`${twilioAccountSid}:${twilioAuthToken}`).toString('base64');
+const twilioApiKey = process.env.TWILIO_API_KEY;
+const twilioApiSecret = process.env.TWILIO_API_SECRET;
+const twilioEncodedCreds = Buffer.from(`${twilioApiKey}:${twilioApiSecret}`).toString('base64');
 
 module.exports = {
     getTranscriptsToken: async (viewLink) => {
