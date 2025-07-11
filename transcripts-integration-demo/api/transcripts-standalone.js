@@ -1,4 +1,4 @@
-const client = require('./client');
+const client = require('./twilioClient');
 
 export default async function handler(req, res) {
   const transcriptViewerEmbeddedUrl = process.env.TRANSCRIPT_VIEWER_EMBEDDED_URL;
