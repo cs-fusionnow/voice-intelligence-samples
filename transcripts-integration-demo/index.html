@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Twilio Transcript Viewer</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/server/index.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Transcript Embed</title>
+</head>
+<body>
+  <h1>Embedded Transcript Viewer</h1>
+  <div id="transcript-container">Loading...</div>
+
+  <script>
+    fetch('/api/transcripts-embedded')
+      .then(res => res.json())
+      .then(data => {
+        const iframe = document.createElement('iframe');
+        iframe.src = data.iframeUrl;
+        iframe.width = "100%";
+        iframe.height = "800";
+        iframe.style.border = "0";
+        document.getElementById('transcript-container').appendChild(iframe);
+      })
+      .catch(err => {
+        document.getElementById('transcript-container').textContent = "Failed to load transcripts.";
+        console.error(err);
+      });
+  </script>
+</body>
 </html>
