@@ -1,4 +1,4 @@
-const client = require('../client');
+const client = require('./client');
 
 export default async function handler(req, res) {
   const { serviceSid, transcriptSid } = req.query;
