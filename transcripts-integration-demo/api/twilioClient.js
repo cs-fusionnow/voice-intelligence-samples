@@ -70,3 +70,33 @@ module.exports = {
         }
     }
 };
+
+getTranscriptsTokenFromViewLink: async (viewLink) => {
+  const rsp = await fetch('https://ai.twilio.com/v1/Tokens', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${twilioEncodedCreds}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      grants: [{
+        product: 'intelligence-discovery',
+        metadata: {
+          viewLinks: {
+            conversationViewLink: {
+              target: "_top",
+              href: viewLink
+            }
+          }
+        }
+      }]
+    })
+  });
+
+  if (rsp.ok) {
+    const { token } = await rsp.json();
+    return token;
+  } else {
+    throw new Error('Failed to generate discovery token with viewLink');
+  }
+}
