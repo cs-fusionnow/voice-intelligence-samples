@@ -19,6 +19,7 @@ module.exports = {
         grants: [{
           product: 'intelligence-discovery',
           metadata: {
+            defaultServiceSids: ["GA71776b2c22c2f6821e2044256d77f3ca"],
             viewLinks: {
               conversationViewLink: {
                 target: "_self",
