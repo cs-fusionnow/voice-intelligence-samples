@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+fconst fetch = require('node-fetch');
 
 const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
 const twilioApiKey = process.env.TWILIO_API_KEY;
@@ -21,7 +21,7 @@ module.exports = {
           metadata: {
             viewLinks: {
               conversationViewLink: {
-                target: "_top",
+                target: "_self",
                 href: viewLinkTemplate
               }
             }
