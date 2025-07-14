@@ -1,4 +1,4 @@
-fconst fetch = require('node-fetch');
+const fetch = require('node-fetch');
 
 const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
 const twilioApiKey = process.env.TWILIO_API_KEY;
